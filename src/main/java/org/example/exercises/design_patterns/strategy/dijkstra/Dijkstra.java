@@ -1,5 +1,7 @@
 package org.example.exercises.design_patterns.strategy.dijkstra;
 
+import org.example.exercises.design_patterns.strategy.interface_strategy.City;
+
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Map;
@@ -22,10 +24,17 @@ public class Dijkstra {
                 continue;
             }
             unsettledNodes.remove(currentNode);
-            for (Map.Entry<Node, Integer> adjacencyPair:
-                    currentNode.getAdjacentNodes().entrySet()) {
-                Node adjacentNode = adjacencyPair.getKey();
-                Integer edgeWeight = adjacencyPair.getValue();
+            for (Map.Entry<City, Integer> adjacencyPair_temp:  currentNode.getAdjacentNodes().entrySet()) {
+                Node key = null;
+                for(Node node: graph.getNodes()){
+                    if(node.getName().equals(adjacencyPair_temp.getKey().toString())){
+                        key = node;
+                    }
+                }
+
+
+                Node adjacentNode = key;
+                Integer edgeWeight = adjacencyPair_temp.getValue();
                 if (!settledNodes.contains(adjacentNode)) {
                     calculateMinimumDistance(adjacentNode, edgeWeight, currentNode);
                     unsettledNodes.add(adjacentNode);

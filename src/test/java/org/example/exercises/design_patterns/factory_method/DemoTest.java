@@ -1,16 +1,13 @@
 package org.example.exercises.design_patterns.factory_method;
 
 import org.assertj.core.api.Assertions;
-import org.example.exercises.design_patterns.factory_method.Demo;
 import org.example.exercises.design_patterns.factory_method.package_detail.Package;
 import org.example.exercises.design_patterns.factory_method.package_detail.PackageGenerator;
 import org.example.exercises.design_patterns.factory_method.transport.TransportType;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.stream.Stream;
 

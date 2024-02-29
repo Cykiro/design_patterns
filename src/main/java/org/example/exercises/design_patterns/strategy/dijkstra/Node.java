@@ -1,11 +1,10 @@
 package org.example.exercises.design_patterns.strategy.dijkstra;
 
 import org.example.exercises.design_patterns.strategy.interface_strategy.City;
+import org.example.exercises.design_patterns.strategy.interface_strategy.RouteStrategy;
+import org.example.exercises.design_patterns.strategy.route.StrategyType;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Node {
     private String name;
@@ -14,10 +13,12 @@ public class Node {
 
     private Integer distance = Integer.MAX_VALUE;
 
-    Map<Node, Integer> adjacentNodes = new HashMap<>();
-//todo nowe pole jak mozna sie przemieszczac
-    public void addDestination(Node destination, int distance) {
+
+    Map<City, Integer> adjacentNodes = new HashMap<>();
+    Map<City, StrategyType> adjacentStrategy = new HashMap<>();
+    public void addDestination(City destination, int distance, StrategyType strategyType) {
         adjacentNodes.put(destination, distance);
+        adjacentStrategy.put(destination, strategyType);
     }
 
     public Node(City destinations) {
@@ -49,12 +50,11 @@ public class Node {
         this.name = name;
     }
 
-    public Map<Node, Integer> getAdjacentNodes() {
+    public Map<City, Integer> getAdjacentNodes() {
         return adjacentNodes;
     }
 
-    public void setAdjacentNodes(Map<Node, Integer> adjacentNodes) {
-        this.adjacentNodes = adjacentNodes;
+    public Map<City, StrategyType> getAdjacentStrategy() {
+        return adjacentStrategy;
     }
-
 }

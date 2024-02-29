@@ -47,7 +47,7 @@ class DemoTest {
         order.add(new MenuItem(menu.get(5)));
         OrderCommand orderCommand = new OrderCommand();
 
-        List<Command> commands = orderCommand.placeOrder(order);// kartka i dodaje executora do wykonania
+        List<Command> commands = orderCommand.placeOrder(order);
         TakeCommandtoStaff.prepareFood(commands);
 
         assertThat(orderCommand.getPreparationTime()).isEqualTo(16);

@@ -32,7 +32,7 @@ class DemoTest {
 
     @Test
     public void shouldCreateClient() {
-        Client client = new Client("124189241246", "haslo1");
+        Client client = new Client("1241892412124146", "haslo2");
 
         Optional<Client> saved = dataBaseConector.save(client);
 
